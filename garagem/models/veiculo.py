@@ -13,3 +13,15 @@ class Veiculo(models.Model):
 
     def __str__(self):
         return f"{self.marca} {self.modelo} {self.ano}, {self.cor}"
+    
+from uploader.models import Image
+
+class Veiculo(models.Model):
+    capa = models.ForeignKey(
+        Image,
+        related_name="+",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        default=None,
+    )
