@@ -1,5 +1,5 @@
 from django.db import models
-from garagem.models import Marca,Categoria,Cor
+from garagem.models import Marca,Categoria,Cor,Modelo,Acessorio
     
 class Veiculo(models.Model):
     modelo = models.CharField(max_length=100)
@@ -8,7 +8,7 @@ class Veiculo(models.Model):
     marca = models.ForeignKey(Marca, on_delete=models.PROTECT, related_name="veiculos")
     categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT, related_name="veiculos")
     cor = models.ForeignKey(Cor, on_delete=models.PROTECT, related_name="veiculos")
-
+    acessorio = models.ForeignKey(Acessorio, on_delete=models.PROTECT, related_name="veiculos")
 
 
     def __str__(self):

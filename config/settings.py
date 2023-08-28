@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'usuario',
     'uploader',
+    'drf_spectacular',
     'garagem',
     'rest_framework',
 ]
@@ -107,6 +108,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -118,6 +122,12 @@ TIME_ZONE = "America/Sao_Paulo"
 USE_I18N = True
 
 USE_TZ = True
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "garagem API",
+    "DESCRIPTION": "API para gerenciamento de garagem, incluindo endpoints e documentação.",
+    "VERSION": "1.0.0",
+}
 
 
 # Static files (CSS, JavaScript, Images)
